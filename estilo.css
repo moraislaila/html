@@ -1,0 +1,10 @@
+button {
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+}
+button:hover {
+    color: rgb(3, 29, 3);
+    text-decoration: underline;
+}
+    
