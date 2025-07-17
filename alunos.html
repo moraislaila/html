@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="text-align: center; font-family: sans-serif">
+
+    <input type="text" id="alunos">
+
+    <button onclick="adicionarAluno()">Adicionar</button>
+    <button onclick="removerAluno()">Remover</button>
+    <button onclick="visualizarAluno()">visualizar</button>
+
+    <h2>lista de alunos</h2>
+
+    <ul id="lista-alunos"></ul>
+
+    <script>
+
+        let alunos = []
+
+
+
+        function adicionarAluno() {
+            const input = document.getElementById("alunos");
+
+            if (input.value != "") {
+
+                let existe = alunos.includes(input.value) /* o includes ele inclui a variavel visualizando se ela existe ou não*/
+                if (existe == false) { /* aqui se o nome digitado não existir, então ele vai adiciona-lo*/
+                    alunos.push(input.value)
+                
+                input.value = "";
+
+                } else {
+                    alert("esse usuario já existe")
+                }
+
+                atualizarLista();
+
+               
+            }
+
+        }
+
+
+        function atualizarLista() {
+            const ul = document.getElementById("lista-alunos")
+            ul.innerHTML = ""
+            for (let i = 0; i < alunos.length; i++) {
+                const li = document.createElement("li");
+                li.textContent = alunos[i]
+                ul.appendChild(li);
+
+            }
+        }
+
+        function removerAluno() {
+            let nome = prompt("digite o nome do aluno:")
+            let indice = alunos.indexOf(nome) /* o indexOf da a posição, o indice faz o computador entender que é pra procurar a posição da lsita de alunos */
+            alunos.splice(indice, 1)/* ele remove com um limite e um inciio*/
+            atualizarLista()
+        }
+        
+    </script>
+
+</body>
+
+</html>

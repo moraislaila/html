@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Quartos ocupados</h2>
+    <div id="registros"></div>
+
+    <script>
+        let quartos = []
+        let estudantes = []
+        let email = []
+
+        let num = parseInt(prompt("digite o numero de quartos para alugar:"))
+
+        alugarQuartos()
+
+        function alugarQuartos() {
+            for (let i = 0; i < num; i++) {
+                let quarto = prompt("digite o numero do quarto:")
+                let existe = quartos.includes(quarto)
+                if (existe == false) {
+                    quartos.push(quarto)
+
+                    let nomes = prompt("digite seu nome:")
+                    estudantes.push(nomes)
+
+                    let emails = prompt("digite seu email:")
+                    email.push(emails)
+
+                    atualizarTela()
+
+                } else {
+                    alert("esse quarto já está sendo ocupado")
+                }
+
+
+
+
+
+
+
+            }
+        }
+
+        function atualizarTela() {
+
+            let reg = document.getElementById("registros")
+            reg.innerHTML=""
+            for (let i = 0; i < email.length;i++) {
+                reg.innerHTML += `   ${quartos[i]}: ${estudantes[i]}, ${email[i]} <br> `
+                
+            }
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>

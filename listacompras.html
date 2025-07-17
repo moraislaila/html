@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center; font-family: sans-serif">
+
+    <h2>lista de compra</h2>
+    <ul id="lista-compras"></ul>
+
+    <script>
+        let compras =["arroz", "feijão", "pão", "refrigerante"]
+        const ul = document.getElementById("lista-compras")
+
+        for (let i = 0; i < compras.length; i++) {
+            let li = document.createElement("li");
+            li.textContent = compras[i]
+            ul.appendChild(li);
+          
+            
+        }
+    </script>
+    
+
+</body>
+</html>
